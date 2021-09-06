@@ -74,7 +74,8 @@ namespace SeleniumCSharpSpecflowProject
         public bool WaitForDynamicObjectToAppear(By Element)
         {
                 int i = 1;
-                do
+            Thread.Sleep(7000);
+            do
                 {
                     if (driver.FindElements(Element).Count == 1)
                     {

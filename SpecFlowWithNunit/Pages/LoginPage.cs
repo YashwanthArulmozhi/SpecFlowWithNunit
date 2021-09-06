@@ -19,7 +19,7 @@ namespace SeleniumCSharpSpecflowProject
         private By label_SuccessMsg = By.XPath("//b[contains(text(),'Successful Login')]");
         private By button_Login = By.XPath("//input[@value='Test Login']");
         private By link_Logout = By.XPath("//a[text()='Logout']");
-       String DeleteLink = "//a[contains(text(),'PARAMETER')]/a";
+       String DeleteLink = "//li[contains(text(),'PARAMETER')]/a";
 
 
         public void LogIn()
@@ -69,8 +69,7 @@ namespace SeleniumCSharpSpecflowProject
                 WaitForElement(link_Delete);
                 ClickElement(link_Delete);
                 WaitForDynamicObjectToAppear(link_Delete);
-                //Thread.Sleep(7000);
-                if (GetSizeOfElements(link_Delete) == 0)
+                if (GetSizeOfElements(link_Delete) == 1)
                 {
                     ReporterClass.AddStepLog("User is Deleted");
                 }

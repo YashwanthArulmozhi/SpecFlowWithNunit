@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Yash\\source\\repos\\SpecFlowWithNunit\\SpecFlowWithNunit\\SpecFlowWithNunit.csproj": {}
+    "C:\\Users\\Yash\\Documents\\Projects\\SpecFlowWithNUnit\\SpecFlowWithNunit\\SpecFlowWithNunit\\SpecFlowWithNunit.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Yash\\source\\repos\\SpecFlowWithNunit\\SpecFlowWithNunit\\SpecFlowWithNunit.csproj": {
+    "C:\\Users\\Yash\\Documents\\Projects\\SpecFlowWithNUnit\\SpecFlowWithNunit\\SpecFlowWithNunit\\SpecFlowWithNunit.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Yash\\source\\repos\\SpecFlowWithNunit\\SpecFlowWithNunit\\SpecFlowWithNunit.csproj",
+        "projectUniqueName": "C:\\Users\\Yash\\Documents\\Projects\\SpecFlowWithNUnit\\SpecFlowWithNunit\\SpecFlowWithNunit\\SpecFlowWithNunit.csproj",
         "projectName": "SpecFlowWithNunit",
-        "projectPath": "C:\\Users\\Yash\\source\\repos\\SpecFlowWithNunit\\SpecFlowWithNunit\\SpecFlowWithNunit.csproj",
+        "projectPath": "C:\\Users\\Yash\\Documents\\Projects\\SpecFlowWithNUnit\\SpecFlowWithNunit\\SpecFlowWithNunit\\SpecFlowWithNunit.csproj",
         "packagesPath": "C:\\Users\\Yash\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Yash\\source\\repos\\SpecFlowWithNunit\\SpecFlowWithNunit\\obj\\",
+        "outputPath": "C:\\Users\\Yash\\Documents\\Projects\\SpecFlowWithNUnit\\SpecFlowWithNunit\\SpecFlowWithNunit\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"

@@ -118,16 +118,16 @@ namespace SeleniumCSharpSpecflowProject
                 switch (stepType)
                 {
                     case "Given":
-                        stepName.Fail(scenarioContext.TestError.Message).AddScreenCaptureFromPath(CommonActionClass.TakeScreenshotImage(filePathToSaveScreenshots));
+                        stepName.Fail(scenarioContext.TestError.Message).AddScreenCaptureFromPath(CommonActionClass.TakeScreenshotImage(filePathToSaveScreenshots),"Failed Image");
                         break;
                     case "When":
-                        stepName.Fail(scenarioContext.TestError.Message).AddScreenCaptureFromPath(CommonActionClass.TakeScreenshotImage(filePathToSaveScreenshots));
+                        stepName.Fail(scenarioContext.TestError.Message).AddScreenCaptureFromPath(CommonActionClass.TakeScreenshotImage(filePathToSaveScreenshots),"Failed Image");
                         break;
                     case "Then":
-                        stepName.Fail(scenarioContext.TestError.Message).AddScreenCaptureFromPath(CommonActionClass.TakeScreenshotImage(filePathToSaveScreenshots));
+                        stepName.Fail(scenarioContext.ScenarioExecutionStatus.ToString()).AddScreenCaptureFromPath(CommonActionClass.TakeScreenshotImage(filePathToSaveScreenshots),"Failed Image");
                         break;
                     case "And":
-                        stepName.Fail(scenarioContext.TestError.Message).AddScreenCaptureFromPath(CommonActionClass.TakeScreenshotImage(filePathToSaveScreenshots));
+                        stepName.Fail(scenarioContext.TestError.Message).AddScreenCaptureFromPath(CommonActionClass.TakeScreenshotImage(filePathToSaveScreenshots),"Failed Image");
                         break;
                 }
             }
@@ -149,11 +149,14 @@ namespace SeleniumCSharpSpecflowProject
             try
             {
                 extentReports.Flush();
-                System.Diagnostics.Process.Start(reportCompleteFilePath);
+                System.Diagnostics.Process process = new System.Diagnostics.Process();
+                process.StartInfo.UseShellExecute = true;
+                process.StartInfo.FileName = reportCompleteFilePath + "index.html";
+                process.Start();
             }
             catch (Exception e)
             {
-               Console.WriteLine(e.GetBaseException().Message);
+              Console.WriteLine(e.InnerException.Message);
             }
         }
     }
