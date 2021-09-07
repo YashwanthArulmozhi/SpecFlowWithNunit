@@ -2,6 +2,7 @@
 using AventStack.ExtentReports;
 using AventStack.ExtentReports.Gherkin.Model;
 using AventStack.ExtentReports.Reporter;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -60,7 +61,6 @@ namespace SeleniumCSharpSpecflowProject
         public static void CreateScenario(ScenarioContext scenarioContext)
         {
             scenarioName = featureName.CreateNode<Scenario>(scenarioContext.ScenarioInfo.Title);
-           
         }
 
         [BeforeStep]
@@ -118,16 +118,16 @@ namespace SeleniumCSharpSpecflowProject
                 switch (stepType)
                 {
                     case "Given":
-                        stepName.Fail(scenarioContext.TestError.Message).AddScreenCaptureFromPath(CommonActionClass.TakeScreenshotImage(filePathToSaveScreenshots),"Failed Image");
+                        stepName.Fail(scenarioContext.TestError.Message).AddScreenCaptureFromPath(CommonActionsUtils.TakeScreenshotImage(filePathToSaveScreenshots),"Failed Image");
                         break;
                     case "When":
-                        stepName.Fail(scenarioContext.TestError.Message).AddScreenCaptureFromPath(CommonActionClass.TakeScreenshotImage(filePathToSaveScreenshots),"Failed Image");
+                        stepName.Fail(scenarioContext.TestError.Message).AddScreenCaptureFromPath(CommonActionsUtils.TakeScreenshotImage(filePathToSaveScreenshots),"Failed Image");
                         break;
                     case "Then":
-                        stepName.Fail(scenarioContext.ScenarioExecutionStatus.ToString()).AddScreenCaptureFromPath(CommonActionClass.TakeScreenshotImage(filePathToSaveScreenshots),"Failed Image");
+                        stepName.Fail(scenarioContext.ScenarioExecutionStatus.ToString()).AddScreenCaptureFromPath(CommonActionsUtils.TakeScreenshotImage(filePathToSaveScreenshots),"Failed Image");
                         break;
                     case "And":
-                        stepName.Fail(scenarioContext.TestError.Message).AddScreenCaptureFromPath(CommonActionClass.TakeScreenshotImage(filePathToSaveScreenshots),"Failed Image");
+                        stepName.Fail(scenarioContext.TestError.Message).AddScreenCaptureFromPath(CommonActionsUtils.TakeScreenshotImage(filePathToSaveScreenshots),"Failed Image");
                         break;
                 }
             }
@@ -141,6 +141,7 @@ namespace SeleniumCSharpSpecflowProject
          public static void AddFailedStepLog(string failedDescription)
          {
             GetStepThreadLocal().Value.Fail(failedDescription);
+            Assert.Fail();
          }
 
         [AfterTestRun]
@@ -153,6 +154,12 @@ namespace SeleniumCSharpSpecflowProject
                 process.StartInfo.UseShellExecute = true;
                 process.StartInfo.FileName = reportCompleteFilePath + "index.html";
                 process.Start();
+                System.Diagnostics.Process[] allChromeProccess = System.Diagnostics.Process.GetProcessesByName("chromedriver");
+                string s = allChromeProccess[0].ProcessName;
+                foreach (System.Diagnostics.Process chromeprocess in allChromeProccess)
+                {
+                    chromeprocess.Kill();
+                }
             }
             catch (Exception e)
             {

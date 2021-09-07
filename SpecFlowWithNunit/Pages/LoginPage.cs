@@ -7,7 +7,7 @@ using System.Threading;
 
 namespace SeleniumCSharpSpecflowProject
 {
-    class LoginPage : CommonActionClass
+    class LoginPage : CommonActionsUtils
     {
 
         private By input_EmailId = By.Name("username");
@@ -63,26 +63,26 @@ namespace SeleniumCSharpSpecflowProject
         public void DeleteUserAndValidate()
         {
             try
+
             {
                 DeleteLink = DeleteLink.Replace("PARAMETER", CreateUserPage.userName);
                 By link_Delete = By.XPath(DeleteLink);
                 WaitForElement(link_Delete);
                 ClickElement(link_Delete);
                 WaitForDynamicObjectToAppear(link_Delete);
-                if (GetSizeOfElements(link_Delete) == 1)
+                if (GetSizeOfElements(link_Delete) == 0)
                 {
                     ReporterClass.AddStepLog("User is Deleted");
                 }
                 else
                 {
-                    Assert.Fail("User is not Deleted");
+                    ReporterClass.AddFailedStepLog("User is not Deleted");
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                ReporterClass.AddFailedStepLog("Element not available. " +e.InnerException);
-                Logout();
-                Assert.Fail();
+                // Logout();
+                ReporterClass.AddFailedStepLog("Element not available. " + e.InnerException);
             }
         }
 

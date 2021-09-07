@@ -1526,6 +1526,15 @@
           "lib/netcoreapp2.2/RazorEngine.NetCore.dll": {}
         }
       },
+      "RestSharp/106.12.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/RestSharp.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/RestSharp.dll": {}
+        }
+      },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {
         "type": "package",
         "runtimeTargets": {
@@ -5320,6 +5329,22 @@
         "lib/netstandard2.0/RazorEngine.NetCore.dll",
         "razorengine.netcore.2.2.6.nupkg.sha512",
         "razorengine.netcore.nuspec"
+      ]
+    },
+    "RestSharp/106.12.0": {
+      "sha512": "irOsQHe5nTJB0BKxGQnTX1dsgCPl5dLTxvL7gbl98JiFPiHMN4wpFyUG/66ZpaFCsIrPKh6XwozWXlwYe9JwYQ==",
+      "type": "package",
+      "path": "restsharp/106.12.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net452/RestSharp.dll",
+        "lib/net452/RestSharp.xml",
+        "lib/netstandard2.0/RestSharp.dll",
+        "lib/netstandard2.0/RestSharp.xml",
+        "restsharp.106.12.0.nupkg.sha512",
+        "restsharp.nuspec",
+        "restsharp.png"
       ]
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {
@@ -10664,6 +10689,7 @@
       "Microsoft.NET.Test.Sdk >= 16.5.0",
       "NPOI >= 2.5.4",
       "NUnit3TestAdapter >= 3.17.0",
+      "RestSharp >= 106.12.0",
       "Selenium.Support >= 3.141.0",
       "Selenium.WebDriver >= 3.141.0",
       "SpecFlow.NUnit >= 3.9.8",
@@ -10739,6 +10765,10 @@
           "NUnit3TestAdapter": {
             "target": "Package",
             "version": "[3.17.0, )"
+          },
+          "RestSharp": {
+            "target": "Package",
+            "version": "[106.12.0, )"
           },
           "Selenium.Support": {
             "target": "Package",

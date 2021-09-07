@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using TechTalk.SpecFlow;
 
 namespace SeleniumCSharpSpecflowProject.Steps
@@ -18,8 +19,6 @@ namespace SeleniumCSharpSpecflowProject.Steps
             scenarioTitle = scenarioTitle.Split("_")[1];
             Console.WriteLine(scenarioTitle);
         }
-
-       
 
         [Given(@"Launch the application")]
         public void GivenLaunchTheApplication()

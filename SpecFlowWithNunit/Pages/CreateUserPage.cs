@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
 using SeleniumCSharpSpecflowProject.Steps;
+using SpecFlowWithNunit.Utils;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,7 +10,7 @@ using System.Text;
 
 namespace SeleniumCSharpSpecflowProject
 {
-    class CreateUserPage : CommonActionClass
+    class CreateUserPage : CommonActionsUtils
     {
 
         private By link_AddUser = By.XPath("//a[contains(text(),'Add a User')]");
@@ -41,7 +42,7 @@ namespace SeleniumCSharpSpecflowProject
         public void LaunchTheApplication()
         {
             // string v = "http://thedemosite.co.uk/login.php";
-            applicationUrl = ReadDataFromExcel(CreateUserSteps.scenarioTitle, "URL");
+            applicationUrl = ExcelUtils.ReadDataFromExcel(CreateUserSteps.scenarioTitle, "URL");
             LaunchApplication(applicationUrl);
             ReporterClass.AddStepLog("Application URL - > " + applicationUrl);
         }
@@ -56,8 +57,8 @@ namespace SeleniumCSharpSpecflowProject
 
         public void RegisterUser()
         {
-            userName = ReadDataFromExcel(CreateUserSteps.scenarioTitle, "Username");
-            password = ReadDataFromExcel(CreateUserSteps.scenarioTitle, "Password");
+            userName = ExcelUtils.ReadDataFromExcel(CreateUserSteps.scenarioTitle, "Username");
+            password = ExcelUtils.ReadDataFromExcel(CreateUserSteps.scenarioTitle, "Password");
             ClickRubProjectIfDisplayed();
             if (WaitForElement(link_Register) != null)
             {
